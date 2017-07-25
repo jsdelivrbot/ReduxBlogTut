@@ -9,3 +9,7 @@ form a {
 .back-to-index {
   margin-top: 10px;
 }
+
+.delete-post {
+  margin: 10px 0 0 5px;
+}
