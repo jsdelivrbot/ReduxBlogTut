@@ -19,13 +19,13 @@ class PostsNew extends Component {
     return (
       <form>
         <Field
-          label='Title for Post'
+          label='Title of Post'
           name='title'
           component={this.renderField}
         />
         <Field
-          label='Tags'
-          name='tags'
+          label='Categories'
+          name='categories'
           component={this.renderField}
         />
         <Field
@@ -38,6 +38,24 @@ class PostsNew extends Component {
   }
 }
 
+function validate(values) {
+  const errors = {};
+
+  if (!values.title) {
+    errors.title = 'Enter a title';
+  }
+  if (!values.categories) {
+    errors.categories = 'Enter some categories';
+  }
+
+  if (!values.content) {
+    errors.content = 'Enter some content';
+  }
+  
+  return errors;
+}
+
 export default reduxForm({
+  validate,
   form: 'PostsNewForm'
 })(PostsNew);
